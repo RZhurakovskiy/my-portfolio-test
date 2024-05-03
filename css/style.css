@@ -659,6 +659,10 @@ body {
         border-radius: 50%;
      
     }
+    .accordion-content {
+        max-width: 350px;
+        width: 100%;
+      }
   }
   /* section services */
 
