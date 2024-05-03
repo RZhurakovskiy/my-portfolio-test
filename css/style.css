@@ -296,6 +296,7 @@ body {
     .mobile-btn {
         display: block;
         float: right;
+        width: 40px;
     }
     .nav {
         display: none;
