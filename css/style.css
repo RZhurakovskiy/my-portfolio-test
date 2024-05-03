@@ -71,7 +71,7 @@ body:not(.preloader-active) .content {
 /* base */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
-    background-color: #1c1d1f;
+    background-color: #41455A;
     color: #ddd;
 }
 /* main {
