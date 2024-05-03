@@ -104,6 +104,7 @@ body {
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
+    z-index: 10;
 }
 .cookie-consent button {
     background-color: #fff;
@@ -191,12 +192,7 @@ body {
     max-width: 600px;
     width: 100%;
 }
-/* .header-description h2 {
 
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 27px;
-} */
 .header-button {
     padding-bottom: 50px;
     display: flex;
@@ -319,7 +315,8 @@ body {
         line-height: 42px;
         z-index: 2;
         display: block;
-        background: #fff;
+        background-color: #41455A;
+        border-right: 1px solid #ffffff63;
         width: 70%;
         padding: 20px;
         padding-top: 20%;
@@ -333,7 +330,7 @@ body {
         transform: translateX(0);
     }
     .mobile-menu__links li a {
-        color: #333;
+        color: #fff;
         font-size: 22px;
     } 
     .header-content {
@@ -660,7 +657,7 @@ body {
      
     }
     .accordion-content {
-        max-width: 350px;
+        max-width: 350px; 
         width: 100%;
       }
   }
