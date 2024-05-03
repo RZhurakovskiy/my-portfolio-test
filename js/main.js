@@ -5,7 +5,43 @@ window.addEventListener("load", function () {
     preloader.style.display = "none";
   }, 600);
 });
+const blobs = document.querySelectorAll('.blur-blob');
 
+    // Функция для генерации случайного числа в заданном диапазоне
+    function random(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
+    // Инициализация начальных позиций и скоростей клякс
+    blobs.forEach(blob => {
+        // Начальное положение и скорость
+        blob.style.top = `${random(0, window.innerHeight)}px`;
+        blob.style.left = `${random(0, window.innerWidth)}px`;
+        blob.vx = random(-1, 1);
+        blob.vy = random(-1, 1);
+    });
+
+    // Анимация клякс
+    function moveBlobs() {
+        blobs.forEach(blob => {
+            let x = parseFloat(blob.style.left);
+            let y = parseFloat(blob.style.top);
+            // Обновляем позицию
+            x += blob.vx;
+            y += blob.vy;
+
+            // Отталкивание от краев экрана
+            if (x <= 0 || x >= window.innerWidth - 100) blob.vx *= -1;
+            if (y <= 0 || y >= window.innerHeight - 100) blob.vy *= -1;
+
+            blob.style.left = `${x}px`;
+            blob.style.top = `${y}px`;
+        });
+        requestAnimationFrame(moveBlobs);
+    }
+
+    // Запуск анимации
+    moveBlobs();
 document.addEventListener("DOMContentLoaded", function () {
   // Проверяем, есть ли разрешение в localStorage
   if (localStorage.getItem("cookieConsent")) {
@@ -82,10 +118,10 @@ function scrollFunction() {
   }
 }
 
-// При клике на кнопку, прокручиваем страницу наверх
+
 document.getElementById("scrollTop").addEventListener("click", function() {
   window.scrollTo({
-      top: 0,
+    top: targetElement.offsetTop,
       behavior: "smooth"
   });
 });
