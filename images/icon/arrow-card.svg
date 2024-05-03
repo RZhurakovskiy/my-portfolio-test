@@ -1,0 +1,13 @@
+<svg width="45.000000" height="45.000000" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<pattern id="pattern_6_90" patternContentUnits="objectBoundingBox" width="1.000000" height="1.000000">
+			<use xlink:href="#image6_9_0" transform="matrix(0.033333,0,0,0.033333,0,0)"/>
+		</pattern>
+		<image id="image6_9_0" width="30.000000" height="30.000000" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABHNCSVQICAgIfAhkiAAAANRJREFUSInt1L1KA0EYRuHzTkYM6RWsFUwgqdLJbhM7vaRt1kKvSNKlSALpUiUQm60FLyG7zGchCKuYIjAKMk87MGf+GEiSJDmSYk18nZULdejVNXfVqnz7Ou5ihSXrYhp7p9nlTXn+a+GG03vMNnIMT5zmg/zxorWwWGGAq/zpzLOfIY0IvEh+slsWr9HDh+IeYJA/LE1kcdI1n/tz9APNMzCOdsc/kczgD4/6/z2uQ1EAHyvsVU9BIwtsm2C31apo/V7RHleABtn6I/r9y0ySJDnaO0BoVxv2nt5sAAAAAElFTkSuQmCC"/>
+	</defs>
+	<rect id="Прямоугольник 8" x="0.500000" y="0.500000" rx="22.000000" width="44.000000" height="44.000000" stroke="#283E81" stroke-opacity="1.000000" stroke-width="1.000000"/>
+	<rect id="arrow-card" x="7.000000" y="8.000000" width="30.000000" height="30.000000" fill="url(#pattern_6_90)" fill-opacity="1.000000"/>
+</svg>
