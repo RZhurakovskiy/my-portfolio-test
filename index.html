@@ -25,80 +25,59 @@
     <div class="blur-blob blob1"></div>
     <div class="blur-blob blob2"></div>
     <div class="blur-blob blob3"></div>
+    <div class="blur-blob blob4"></div>
+    <div class="blur-blob blob5"></div>
 
     <header class="header">
       <nav class="mobile-nav">
         <div class="container">
-          <button class="mobile-btn">
-            <img
-              src="./images/icon/mobile-menu-btn.png"
-              alt="кнопка мобильного меню"
-            />
-          </button>
+            <div class="mobile-nav-row">
+                <div class="logo-with-glow-mobile">WebDev</div>
+                <button id="menu-btn" class="menu-icon">
+                  <div class="menu-icon-line"></div>
+                </button>
+            </div>
+            <div  class="mobile-menu__links">
+              <ul>
+                <li><a href="#about-me">Обо мне</a></li>
+                <li><a href="#my-skills">Мои навыки</a></li>
+                <li><a href="#my-projects">Мои работы</a></li>
+                <li><a href="#cooperation">Этапы сотрудничества</a></li>
+                <li><a href="#services">Цены</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <div class="mobile-social">
+                <button><a href="#!"><img src="./images/icon/telegram-icon.png" alt="ссылка в телеграм"></a></button>
+                <button><a href="#!"><img src="./images/icon/vk-icon.png" alt="ссылка в вк"></a></button>
+            </div>
+            </div>
+      
         </div>
-        <ul class="mobile-menu__links">
-          <li>
-            <a href="#about-me">Обо мне</a>
-          </li>
-          <li>
-            <a href="#my-skills">Мои навыки</a>
-          </li>
-          <li>
-            <a href="#my-projects">Мои работы</a>
-          </li>
-          <li>
-            <a href="#cooperation">Этапы сотрудничества</a>
-          </li>
-          <li>
-            <a href="#services">Цены</a>
-          </li>
-          <li>
-            <a href="#contacts">Контакты</a>
-          </li>
-          <div class="mobile-social">
-            <button>
-              <a href="!#"
-                ><img
-                  src="./images/icon/telegram-icon.svg"
-                  alt="ссылка в телеграм"
-              /></a>
-            </button>
-            <button>
-              <a href="!#"
-                ><img src="./images/icon/vk-icon.svg" alt="ссылка в вк"
-              /></a>
-            </button>
-          </div>
-        </ul>
-      </nav>
+    </nav>
+    
       <div class="container">
         <nav class="nav">
           <div class="nav-row">
-            <ul class="nav-links">
-              <li><a href="#about-me">Обо мне</a></li>
-              <li><a href="#my-skills">Мои навыки</a></li>
-              <li><a href="#my-projects">Мои работы</a></li>
-              <li><a href="#cooperation">Этапы сотрудничества</a></li>
-              <li>
-                <a href="#services">Цены</a>
-              </li>
-              <li><a href="#contacts">Контакты</a></li>
-            </ul>
+              <ul class="nav-links">
+                  <li><a href="#about-me">Обо мне</a></li>
+                  <li><a href="#my-skills">Мои навыки</a></li>
+                  <li><a href="#my-projects">Мои работы</a></li>
+                  <li><a href="#cooperation">Этапы сотрудничества</a></li>
+                  <li><a href="#services">Цены</a></li>
+                  <li><a href="#contacts">Контакты</a></li>
+              </ul>
+              <div class="logo-with-glow">WebDev</div>
           </div>
-
+      
           <div class="nav-icon">
-            <button>
-              <a href="https://t.me/romanzhurakovskiy">
-                
-              </a>
-            </button>
-            <button>
-              <a href="https://vk.com/romanzhurakovskiy">
-                  
-              </a>
-            </button>
+              <button>
+                  <a href="https://t.me/romanzhurakovskiy"></a>
+              </button>
+              <button>
+                  <a href="https://vk.com/romanzhurakovskiy"></a>
+              </button>
           </div>
-        </nav>
+      </nav>
         <div class="header-content">
           <div class="header-description">
             <h1>
@@ -122,9 +101,10 @@
           </div>
         </div>
       </div>
-      <button id="scrollTop" title="Go to top">
-        <span class="arrow-up"></span>
-      </button>
+      <!-- <a href="#top" class="scroll-to-top" style="display: none;">
+        up 
+    </a> -->
+    <a href="#top" id="up-btn" class="up-hidden">&#8593;</a>
       <div class="cookie-consent" id="cookieConsent">
         Мы используем cookie-файлы на нашем сайте. Продолжая использовать сайт,
         вы соглашаетесь с использованием cookie.
@@ -134,7 +114,7 @@
     <main>
       <section class="about" id="about-me">
         <div class="container">
-          <img src="./images/my-photo.jpeg" alt="Мое фото" />
+          <img class="about-img" src="./images/my-photo.jpeg" alt="Мое фото" />
           <h1>
             Приветствую Вас! Давайте знакомиться: моё имя Роман, и я ваш ключ к
             миру передовых веб-решений. В качестве опытного веб-разработчика, я
@@ -386,14 +366,14 @@
       <div class="footer-container">
         <div class="footer-icon__row">
           <a href="https://vk.com/romanzhurakovskiy"
-            ><img src="./images/footer-icon/vk-icon.svg" alt="вконтакте"
+            ><img src="./images/footer-icon/vk-icon.png" alt="вконтакте"
           /></a>
           <a href="https://t.me/romanzhurakovskiy"
-            ><img src="./images/footer-icon/telegram-icon.svg" alt="телеграм"
+            ><img src="./images/footer-icon/telegram-icon.png" alt="телеграм"
           /></a>
           <a href="mailto:rzhurakovskiy.webdev@yandex.ru"
             ><img
-              src="./images/footer-icon/email-icon.svg"
+              src="./images/footer-icon/email-icon.png"
               alt="электронная почта"
           /></a>
         </div>

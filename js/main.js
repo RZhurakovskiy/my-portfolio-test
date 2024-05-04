@@ -6,31 +6,22 @@ window.addEventListener("load", function () {
   }, 600);
 });
 const blobs = document.querySelectorAll('.blur-blob');
-
-    // Функция для генерации случайного числа в заданном диапазоне
     function random(min, max) {
         return Math.random() * (max - min) + min;
     }
-
-    // Инициализация начальных позиций и скоростей клякс
     blobs.forEach(blob => {
-        // Начальное положение и скорость
         blob.style.top = `${random(0, window.innerHeight)}px`;
         blob.style.left = `${random(0, window.innerWidth)}px`;
-        blob.vx = random(-1, 1);
-        blob.vy = random(-1, 1);
+        blob.vx = random(-1, 2);
+        blob.vy = random(-1, 2);
     });
-
-    // Анимация клякс
     function moveBlobs() {
         blobs.forEach(blob => {
             let x = parseFloat(blob.style.left);
             let y = parseFloat(blob.style.top);
-            // Обновляем позицию
             x += blob.vx;
             y += blob.vy;
 
-            // Отталкивание от краев экрана
             if (x <= 0 || x >= window.innerWidth - 100) blob.vx *= -1;
             if (y <= 0 || y >= window.innerHeight - 100) blob.vy *= -1;
 
@@ -39,104 +30,70 @@ const blobs = document.querySelectorAll('.blur-blob');
         });
         requestAnimationFrame(moveBlobs);
     }
-
-    // Запуск анимации
     moveBlobs();
 document.addEventListener("DOMContentLoaded", function () {
-  // Проверяем, есть ли разрешение в localStorage
   if (localStorage.getItem("cookieConsent")) {
-    // Если разрешение уже дано, скрываем сообщение
     document.getElementById("cookieConsent").style.display = "none";
   } else {
     document.getElementById("cookieConsent").style.display = "block";
   }
-
-  // При клике на кнопку "Принять"
   document
     .getElementById("acceptCookie")
     .addEventListener("click", function () {
-      // Сохраняем разрешение в localStorage
       localStorage.setItem("cookieConsent", "true");
-      // Скрываем сообщение
       document.getElementById("cookieConsent").style.display = "none";
     });
 });
-
-const mobileBtn = document.querySelector(".mobile-btn");
-const mobileMenu = document.querySelector(".mobile-menu__links");
-
-mobileBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("active");
+const mobileBtn = document.querySelector('.menu-icon');
+const mobileMenu = document.querySelector('.mobile-menu__links');
+mobileBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    mobileBtn.classList.toggle('menu-icon-active');
 });
-
-const links = document.querySelectorAll(".mobile-menu__links a");
-
-links.forEach((link) => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("active");
-  });
+const links = document.querySelectorAll('.mobile-menu__links a');
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileBtn.classList.remove('menu-icon-active');
+    });
 });
-
-document.addEventListener("click", (e) => {
-  if (
-    !mobileMenu.contains(e.target) &&
-    !mobileBtn.contains(e.target) &&
-    mobileMenu.classList.contains("active")
-  ) {
-    mobileMenu.classList.remove("active");
-  }
-});
-document.querySelectorAll('a[href^="#"]').forEach((link) => {
-  link.addEventListener("click", function (e) {
-    e.preventDefault(); // Предотвращаем стандартное поведение перехода по ссылке
-    let targetId = this.getAttribute("href"); // Получаем ID целевого элемента
-    let targetElement = document.querySelector(targetId); // Находим элемент
-
-    // Проверяем, существует ли целевой элемент
-    if (targetElement) {
-      // Плавно прокручиваем к элементу
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: "smooth",
-      });
+document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        mobileBtn.classList.remove('menu-icon-active');
     }
-  });
 });
-window.onscroll = function () {
-  scrollFunction();
-};
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        let targetId = this.getAttribute('href');
+        let targetElement = document.querySelector(targetId);
 
-function scrollFunction() {
-  // Получаем кнопку
-  let mybutton = document.querySelector(".scrollTop");
-
-  // Когда пользователь прокручивает страницу более чем на 20px вниз, показываем кнопку
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-
-document.getElementById("scrollTop").addEventListener("click", function() {
-  window.scrollTo({
-    top: targetElement.offsetTop,
-      behavior: "smooth"
-  });
+        if(targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    });
 });
-
-// Optional: Hide button when user is at the top of the page
+const cometBtn = document.getElementById('up-btn');
 window.onscroll = function() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("scrollTop").style.display = "block";
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    cometBtn.classList.remove('up-hidden');
+    cometBtn.classList.add('up-visible');
   } else {
-      document.getElementById("scrollTop").style.display = "none";
+    cometBtn.classList.remove('up-visible');
+    cometBtn.classList.add('up-hidden');
   }
 };
-
-
-
+cometBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
 document.querySelectorAll(".accordion-button").forEach((button) => {
   button.addEventListener("click", function () {
     const accordionContent = this.nextElementSibling;
@@ -163,10 +120,8 @@ document.querySelectorAll(".accordion-button").forEach((button) => {
     }
   });
 });
-
 document.addEventListener("DOMContentLoaded", function () {
   var phoneInput = document.getElementById("phone");
-
   function applyMask(event) {
     var value = phoneInput.value.replace(/\D/g, "");
     var newValue = "";
@@ -189,12 +144,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     phoneInput.value = newValue;
   }
-
   phoneInput.addEventListener("input", applyMask);
 });
-
 gsap.registerPlugin(ScrollTrigger);
-
 function animateFrom(elem, direction = 1) {
   const y = direction * 100;
   gsap.from(elem, {
@@ -214,7 +166,6 @@ function animateFrom(elem, direction = 1) {
 [".about", ".skills"].forEach(className => {
   animateFrom(document.querySelector(className));
 });
-
 document.querySelectorAll(".my-project__card").forEach(card => {
   gsap.from(card, {
     scrollTrigger: {
@@ -228,8 +179,6 @@ document.querySelectorAll(".my-project__card").forEach(card => {
     ease: "power1.out"
   });
 });
-
-// Функция и обсервер для анимирования полосы навыков
 function animateSkillBar(change) {
   change.forEach(entry => {
     if (entry.isIntersecting) {
@@ -242,37 +191,29 @@ function animateSkillBar(change) {
     }
   });
 }
-
 const observer = new IntersectionObserver(animateSkillBar, {
   threshold: 0.5
 });
-
 document.querySelectorAll(".skill-level").forEach(bar => {
   observer.observe(bar);
-});
-
+}); 
 window.addEventListener('load', function() {
-  // Анимация для заголовка h1
   gsap.from("h1", {
     duration: 1.5,
     opacity: 0,
     x: -100, 
     ease: "power2.out"
   });
-
-  // Анимация для кнопок
   gsap.from(".header-button__portfolio, .header-button__contacts", { 
-    duration: 5,  // продолжительность анимации
-    opacity: 0,  // начальная прозрачность
-    rotationX: 360,  // вращение по оси X для эффекта переворота
-    color: "#FFFFFF",  // начальный цвет текста
-    backgroundColor: "#0000FF",  // начальный цвет фона
-    stagger: 0.2,  // интервал между анимациями разных кнопок
-    delay: 0.3,  // задержка перед началом анимации
-    ease: "elastic.out(1, 0.75)",  // эластичный easing для добавления "резинового" эффекта
-   
+    duration: 5, 
+    opacity: 0, 
+    rotationX: 360, 
+    color: "#FFFFFF", 
+    backgroundColor: "#0000FF", 
+    stagger: 0.2, 
+    delay: 0.3,
+    ease: "elastic.out(1, 0.75)", 
 });
-  // Анимация для изображения
   gsap.from(".header-image img", {
     duration: 1.5,
     opacity: 0,
@@ -282,29 +223,3 @@ window.addEventListener('load', function() {
   });
 });
 
-// document.addEventListener("DOMContentLoaded", function() {
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   document.querySelectorAll('.skill').forEach(skill => {
-//       const border = document.createElement('div');
-//       border.classList.add('border-animate');
-//       skill.appendChild(border);
-
-//       gsap.fromTo(border, {
-//               clipPath: 'inset(0 100% 0 0)' // Полностью закрыт справа налево.
-//           }, {
-//               clipPath: 'inset(0 0% 0 0)', // Полностью открыт.
-//               duration: 2, // Продолжительность анимации увеличена для более медленного эффекта.
-//               ease: "power4.out", // Применение эффекта плавности на конце анимации.
-//               scrollTrigger: {
-//                   trigger: skill,
-//                   start: "top bottom",  // Начинается, когда верх .skill встречает нижнюю часть вьюпорта.
-//                   toggleActions: 'play none none none',
-//               }
-             
-//           });
-     
-
-
-//   });
-// });
